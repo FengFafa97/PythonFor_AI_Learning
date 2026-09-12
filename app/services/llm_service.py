@@ -3,7 +3,7 @@ import httpx
 from dataclasses import dataclass
 from typing import Literal, Optional
 from groq import Groq, GroqError, APIConnectionError, RateLimitError           
-from PythonFor_AI_Learning.app.config import Config    # 导入我们写好的配置类（拿钥匙）
+from app.config import Config    # 导入我们写好的配置类（拿钥匙）
 
 # 配置日志格式
 logging.basicConfig(

@@ -3,7 +3,7 @@ import logging
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from pydantic import BaseModel
-from PythonFor_AI_Learning.app.services.llm_service import LLMService
+from app.services.llm_service import LLMService
 
 # 获取在 llm_service 中配置过的 logger
 logger = logging.getLogger("APIRoot")
