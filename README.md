@@ -37,7 +37,8 @@ Create a `.env` file in this directory:
 
 ```
 GROQ_API_KEY=your_key_here
-DEFAULT_MODEL=llama-3.3-70b-versatile   # optional, this is the default
+DEFAULT_MODEL=openai/gpt-oss-20b   # optional, this is the default
+PROXY_URL=socks5://127.0.0.1:1080  # optional; set it explicitly if your OS has a system SOCKS proxy
 ```
 
 Run the API:
@@ -49,6 +50,11 @@ uvicorn app.main:app --reload
 `POST /chat` with `{"message": "..."}` returns `{"status": "success", "data": "..."}`
 on success, or an HTTP error (429/502/503/500, see below) with a human-readable
 message on failure.
+
+`POST /chat/stream` takes the same body and returns `text/event-stream`. Each event is
+`data: {"type": "chunk", "content": "..."}`, and the stream ends with `data: [DONE]`.
+Once the first chunk is sent the status code is already 200, so errors that happen
+mid-stream arrive as `data: {"type": "error", "error_type": "...", "message": "..."}`.
 
 ## Design decision: structured error signals, not string prefixes
 

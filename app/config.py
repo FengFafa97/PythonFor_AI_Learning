@@ -25,7 +25,7 @@ if not found_env:
 
 class Config:
     GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-    MODEL_NAME = os.getenv("DEFAULT_MODEL", "llama-3.3-70b-versatile")
+    MODEL_NAME = os.getenv("DEFAULT_MODEL", "openai/gpt-oss-20b")
     PROXY_URL = os.getenv("PROXY_URL")  # 不设默认值：多数环境不需要代理，需要的自己在 .env 里配
     LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 
