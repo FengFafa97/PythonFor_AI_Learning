@@ -70,7 +70,7 @@ class Agent:
                     tool_result = {
                         "role": "tool",
                         "tool_call_id": tool_call.id,
-                        "content": "Permission denied"
+                        "content": allowed["message"]
                     }
                     history.append(tool_result)                  
                 else:
